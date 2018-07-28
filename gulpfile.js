@@ -7,14 +7,13 @@ gulp.task('server', ['styles'], function() {
     	server: { baseDir: './app/'}
     });
     gulp.watch('./app/**/*.html').on('change', browserSync.reload);
-    // gulp.watch('./app/less/**/*.less', ['less']);
     gulp.watch('./app/sass/**/*.scss', ['styles']);
 });
 
 
 gulp.task('styles', function() {
     return gulp.src('./app/sass/**/*.scss')
-    .pipe(sass/**/*.sass())
+    .pipe(sass())
     .pipe(gulp.dest('./app/css'))
     .pipe(browserSync.stream());
 });
